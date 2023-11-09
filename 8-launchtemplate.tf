@@ -1,6 +1,6 @@
 resource "aws_launch_template" "app1_LT" {
   name_prefix   = "app1_LT"
-  image_id      = "ami-05c13eab67c5d8861"  
+  image_id      = "ami-07b5c2e394fccab6e"  
   instance_type = "t2.micro"
 
   key_name = "MyLinuxBox"
@@ -38,7 +38,7 @@ resource "aws_launch_template" "app1_LT" {
     <body>
     <div>
     <h1> 5 Villages Hidden in the Clouds</h1>
-    <h1>Chains Broken in N.Virginia</h1>
+    <h1>Chains Broken in Sydney</h1>
     <p><b>Instance Name:</b> $(hostname -f) </p>
     <p><b>Instance Private Ip Address: </b> $local_ipv4</p>
     <p><b>Availability Zone: </b> $az</p>
