@@ -30,7 +30,7 @@ resource "aws_route_table" "public" {
   route = [
     {
       cidr_block                 = "0.0.0.0/0"
-      gateway_id                 = aws_internet_gateway.igw.id
+      gateway_id                 = aws_internet_gateway.app1_igw.id
       nat_gateway_id             = ""
       carrier_gateway_id         = ""
       destination_prefix_list_id = ""
@@ -50,22 +50,32 @@ resource "aws_route_table" "public" {
   }
 }
 
-resource "aws_route_table_association" "private-eu-west-1a" {
-  subnet_id      = aws_subnet.private-eu-west-1a.id
+resource "aws_route_table_association" "private-ap-southeast-2a" {
+  subnet_id      = aws_subnet.private-ap-southeast-2a.id
   route_table_id = aws_route_table.private.id
 }
 
-resource "aws_route_table_association" "private-eu-west-1b" {
-  subnet_id      = aws_subnet.private-eu-west-1b.id
+resource "aws_route_table_association" "private-ap-southeast-2b" {
+  subnet_id      = aws_subnet.private-ap-southeast-2b.id
   route_table_id = aws_route_table.private.id
 }
 
-resource "aws_route_table_association" "public-eu-west-1a" {
-  subnet_id      = aws_subnet.public-eu-west-1a.id
+resource "aws_route_table_association" "private-ap-southeast-2c" {
+  subnet_id      = aws_subnet.private-ap-southeast-2c.id
+  route_table_id = aws_route_table.private.id
+}
+
+resource "aws_route_table_association" "public-ap-southeast-2a" {
+  subnet_id      = aws_subnet.public-ap-southeast-2a.id
   route_table_id = aws_route_table.public.id
 }
 
-resource "aws_route_table_association" "public-eu-west-1b" {
-  subnet_id      = aws_subnet.public-eu-west-1b.id
+resource "aws_route_table_association" "public-ap-southeast-2b" {
+  subnet_id      = aws_subnet.public-ap-southeast-2b.id
+  route_table_id = aws_route_table.public.id
+}
+
+resource "aws_route_table_association" "public-ap-southeast-2c" {
+  subnet_id      = aws_subnet.public-ap-southeast-2c.id
   route_table_id = aws_route_table.public.id
 }
